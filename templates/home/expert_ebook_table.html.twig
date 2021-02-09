@@ -1,0 +1,31 @@
+<div class="ebook">
+    <div>
+        <h2>{{ebook.title}}</h2>
+        <h3 class="color-editor">Editeur {{ebook.editorName}}</h3>
+        <p class="text-right text-muted"><i class="far fa-calendar-alt color-icon-grey"></i> Date de publication :
+            {{ebook.releaseDate|date("d M Y")}}<br>
+            {% if ebook.author is not null %}
+            De {{ebook.author}}
+            {% endif %}
+        </p>
+        <table class="table table-borderless table-responsive{-sm|-md|-lg|-xl}">
+            <tbody>
+                <tr>
+                    <th scope="row">
+                        <img src="/uploads/illustrationEbook/{{ ebook.illustration }}" 
+                            class="card-img-top" style="width: 8rem;" alt="{{ ebook.illustration }}">
+                        <a href="{{path ('home_ebook_show', {'slug': ebook.slug})}}">
+                            <button type="button" class="btn btn-connexion">
+                            En savoir plus <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </a>
+                    </th>
+                    <td>
+                        <p class="d-none d-sm-block">{{ebook.description}}</p><br>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
